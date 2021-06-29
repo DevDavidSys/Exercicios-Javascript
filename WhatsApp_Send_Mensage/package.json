@@ -1,0 +1,15 @@
+{
+  "name": "WhatsApp_Send_Mensage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sender.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "twilio": "^3.64.0"
+  }
+}
