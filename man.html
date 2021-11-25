@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        
+        <h1 id="texto" ></h1>
+        <input id ="botao" type="button" value="Clique aqui" onclick="sortear()">
+        
+    </body>
+
+    <script>
+        function sortear(){
+            var num = Math.floor(Math.random()*10);
+            window.document.getElementById('texto').innerHTML = num;
+        }       
+
+    </script>
+
+</html>

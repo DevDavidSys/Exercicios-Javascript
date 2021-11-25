@@ -1,57 +1,57 @@
-var letter = ['a','b','c','d','e','f','g','h','i','j','k'];
-var cont_pal3 = 0;
-var cont_pal4 = 0;
-var cont_pal5 = 0;
-var cont = 0;
+var letter = ['a','b','c','d','e','f','g','h','i'];
 
 function randomLetter(){
-    return Math.floor(Math.random()*(letter.length));
+    min = 0;
+    max = letter.length - 1;
+    return letter[Math.floor(Math.random() * (max - min + 1)) + min];
 }
-function formWord(){
-    var lenght = Math.floor(Math.random()*(4))+3;
-    var word = "";
-    for(var i=1; i<=lenght;i++)
-    {   var random = randomLetter();
-        var let = letter[random];
-        word = word + let;
 
+function formword(){
+    var sizeWord = Math.floor(Math.random()*3+3);
+    var palavra = "";
+    for(i=0;i<sizeWord;i++){
+        var Nova = randomLetter();   
+        palavra = palavra + Nova;
     }
-    return word;
+    
+    return palavra;
 }
 
 function verifyPalindrome(word){
-    var size = word.length;
     var cont = 0;
-    for(i=0;i < Math.floor(size/2);i++){
-        if(word[i] == word[size-1-i]){
-            cont++;            
+    for(i=0;i<word.length;i++){
+        if(word[i] == word[word.length-i-1]){
+            cont++;
         }
     }
-    if (cont == Math.floor(size/2)){
+    if(cont == word.length){
         return true;
+
     }
     else{
         return false;
     }
+
 }
-
-
-while(cont < 10000){
-    var word = formWord();
-    var verification = verifyPalindrome(word);
-    if(verification == true){
-        if(word.length == 3){
-            cont_pal3++;
-        }
-        else if(word.length == 4){
-            cont_pal4++;
-        }
-        else if(word.lenght == 5){
-            cont_pal5++;
+var cont_3 = 0;
+var cont_4 = 0;
+var cont_5 = 0;
+var cont = 0;
+while(cont <10000){
+    var word = formword();
+    if(verifyPalindrome(word) == true){
+        switch (word.length){
+            case 3:
+                cont_3++;
+                break;
+            case 4:
+                cont_4++;
+                break;
+            case 5:
+                cont_5++;
+                break;
         }
     }
     cont++;
 }
-console.log(cont_pal3+"  "+cont_pal4+"  "+ cont_pal5+"  "+word);
-//console.log(cont_pal3,cont_pal4,cont_pal5);
-//console.log(word);
+console.log(cont_3+" "+ cont_4+ " "+ cont_5)
